@@ -1,0 +1,34 @@
+{
+    "EmployeePayrollDB" : [
+        {
+            "id" : 1,
+            "_name" : "Mark",
+            "_gender" : "male",
+            "_department" : [
+                "HR",
+                "Sales",
+                "Finance",
+                "Engineer"
+            ],
+            "_salary" : "50000",
+            "_startDate" : "29 Oct 2019",
+            "_note" : "All is well",
+            "_profilePic" : "../assets/logo1.PNG"
+        },
+        {
+            "id" : 2,
+            "_name" : "John",
+            "_gender" : "male",
+            "_department" : [
+                "HR",
+                "Sales",
+                "Finance",
+                "Engineer"
+            ],
+            "_salary" : "50000",
+            "_startDate" : "29 Oct 2019",
+            "_note" : "All is well",
+            "_profilePic" : "../assets/logo1.PNG"
+        }
+    ]
+}
