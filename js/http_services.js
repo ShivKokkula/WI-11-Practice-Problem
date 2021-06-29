@@ -2,7 +2,7 @@ function makeServiceCall(methodType, url, async = true, data = null) {
     return new Promise(function(resolve,reject){
         let xhr = new XMLHttpRequest();
         xhr.onload = function(){
-            console.log(methodType + " State changed called at " + showTime() + ". Ready state: " +
+            console.log(methodType + " State changed called at " + ". Ready state: " +
                         xhr.readyState + " Status " + xhr.status);
             if (xhr.readyState === 4) {
                 if (xhr.status === 200 || xhr.status === 201) {
@@ -12,7 +12,7 @@ function makeServiceCall(methodType, url, async = true, data = null) {
                         status : xhr.status,
                         statustext :xhr.statusText
                     })
-                    console.log("Handle 400 client error or 500 server error at" +showTime());
+                    console.log("Handle 400 client error or 500 server error at");
                 }
             }
         }
@@ -29,7 +29,7 @@ function makeServiceCall(methodType, url, async = true, data = null) {
         }else{
             xhr.send();
         }
-        console.log(methodType + " request sent to server at " + showTime());
+        console.log(methodType + " request sent to server at ");
     });
 }
 

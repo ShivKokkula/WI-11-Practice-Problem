@@ -27,8 +27,8 @@
     <div id = "post_services"></div>
     <script>
         const getElem = document.querySelector('#get_services');
-        const getURL = "http://localhost:3000/EmployeePayrollDB/";
-        makePromiseCall("GET", getURL, true)
+        const getURL = "http://localhost:3000/EmployeePayrollDB";
+        makeServiceCall("GET", getURL, true)
         .then(responseText => {
             getElem.textContent = "Get user data: " + responseText;
         })
@@ -36,26 +36,38 @@
             getElem.textContent = "Get error status: " + JSON.stringify(error);
         });
 
-        // const deleteElem = document.querySelector('#delete_services');
-        // const deleteURL = "http://localhost:3000/employess/5";
-        // makePromiseCall("DELETE", deleteURL, true)
-        // .then(responseText => {
-        //     deleteElem.textContent = "Get user data: " + responseText;
-        // })
-        // .catch(error => {
-        //     deleteElem.textContent = "Get error status: " + JSON.stringify(error);
-        // });
+        const deleteElem = document.querySelector('#delete_services');
+        const deleteURL = "http://localhost:3000/EmployeePayrollDB/32";
+        makeServiceCall("DELETE", deleteURL, false)
+        .then(responseText => {
+            deleteElem.textContent = "Get user data: " + responseText;
+        })
+        .catch(error => {
+            deleteElem.textContent = "Get error status: " + JSON.stringify(error);
+        });
 
-        // const postElem = document.querySelector('#post_services');
-        // const postURL = "http://localhost:3000/employess";
-        // const emplData = {"name": "Harry", "salary": "33000"};
-        // makePromiseCall("POST", postURL, true, emplData)
-        // .then(responseText => {
-        //     postElem.textContent = "Get user data: " + responseText;
-        // })
-        // .catch(error => {
-        //     postElem.textContent = "Get error status: " + JSON.stringify(error);
-        // });
+        const postElem = document.querySelector('#post_services');
+        const postURL = "http://localhost:3000/EmployeePayrollDB/";
+        const emplData = {
+            "_name": "John",
+            "_gender": "male",
+            "_department": [
+                "HR",
+                "Sales",
+                "Engineer"
+            ],
+            "_salary": "60000",
+            "_startDate": "29 Nov 2021",
+            "_note": "All is well",
+            "_profilePic": "../assets/logo2.PNG"
+        };
+        makeServiceCall("POST", postURL, true, emplData)
+        .then(responseText => {
+            postElem.textContent = "Get user data: " + responseText;
+        })
+        .catch(error => {
+            postElem.textContent = "Get error status: " + JSON.stringify(error);
+        });
     </script>
 </body>
 </html>
