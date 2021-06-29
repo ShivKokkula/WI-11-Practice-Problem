@@ -1,14 +1,35 @@
 let empPayRollList;
 window.addEventListener('DOMContentLoaded',(event) =>{
-    empPayRollList = getEmployeePayRollDataFromStorage();
-    document.querySelector('.emp-count').textContent = empPayRollList.length;
-    createInnerHTML();
-    localStorage.removeItem('editEmp');
+    if (site_properties.use_local_storage.match("true")) {
+        getEmployeePayRollDataFromStorage();
+    }else {
+        getEmployeePayRollDataFromServer(); 
+    }
 });
 
 const getEmployeePayRollDataFromStorage = () =>{
-    return localStorage.getItem('EmployeePayRollList') ? JSON.parse(localStorage.getItem('EmployeePayRollList')) : [];
+    empPayRollList =  localStorage.getItem('EmployeePayRollList') ? JSON.parse(localStorage.getItem('EmployeePayRollList')) : [];
+    processEmployeePayrollDataResponse();
 }
+
+const processEmployeePayrollDataResponse = () => {
+    document.querySelector('.emp-count').textContent = empPayRollList.length;
+    createInnerHTML();
+    localStorage.removeItem('.editEmp');
+}
+
+const getEmployeePayRollDataFromServer = () => {
+    makeServiceCall("GET", site_properties.server_url, true)
+        .then(responseText => {
+            empPayRollList = JSON.parse(responseText);
+            processEmployeePayrollDataResponse();
+        })
+        .catch(error => {
+            console.log("Get error status: " + JSON.stringify(error));
+            empPayRollList = [];
+            processEmployeePayrollDataResponse();
+        });
+};
 
 const createInnerHTML = () => {
     const headerHtml = `
