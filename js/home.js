@@ -19,7 +19,8 @@ const processEmployeePayrollDataResponse = () => {
 }
 
 const getEmployeePayRollDataFromServer = () => {
-    makeServiceCall("GET", site_properties.server_url, true)
+    const getURL = "http://localhost:3000/EmployeePayrollDB";
+    makeServiceCall("GET", getURL, true)
         .then(responseText => {
             empPayRollList = JSON.parse(responseText);
             processEmployeePayrollDataResponse();
