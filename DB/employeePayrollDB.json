@@ -13,46 +13,7 @@
       "_salary": "50000",
       "_startDate": "29 Oct 2019",
       "_note": "All is well",
-      "_profilePic": "../assets/logo1.PNG"
-    },
-    {
-      "_name": "John",
-      "_gender": "male",
-      "_department": [
-        "HR",
-        "Sales",
-        "Engineer"
-      ],
-      "_salary": "60000",
-      "_startDate": "29 Nov 2021",
-      "_note": "All is well",
-      "_profilePic": "../assets/logo2.PNG",
-      "id": 2
-    },
-    {
-      "_name": "Summy",
-      "_profilePic": "../assets/logo3.PNG",
-      "_gender": "female",
-      "_department": [
-        "HR",
-        "Sales"
-      ],
-      "_salary": "315700",
-      "_note": "Good",
-      "_startDate": "1 Nov 2020",
-      "id": 3
-    },
-    {
-      "_name": "Jommy",
-      "_profilePic": "../assets/logo2.PNG",
-      "_gender": "male",
-      "_department": [
-        "HR"
-      ],
-      "_salary": "321600",
-      "_note": "Prof. Jommy",
-      "_startDate": "17 Oct 2019",
-      "id": 4
+      "_profilePic": "../assets/logo4.PNG"
     }
   ]
 }
